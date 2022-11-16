@@ -1,7 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const db = require('./db/connect');
-
+const cors = require('cors');
 
 //import routes
 const employeeRoutes = require('./routes/employees.routes');
@@ -21,8 +21,7 @@ app.get('/', (req, res) => {
 
 //Middlewares
 app.use(express.json());
-
-//Yet to update CORS
+app.use(cors());
 
 app.use('/api', employeeRoutes);
 
